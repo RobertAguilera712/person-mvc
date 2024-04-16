@@ -1,0 +1,31 @@
+@model Person
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+
+    <div class="form-horizontal">
+        <h4>Person</h4>
+        <hr>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        @Html.EditorFor(model => model.Name)
+        @Html.EditorFor(model => model.Surname)
+        @Html.EditorFor(model => model.Lastname)
+        @Html.EditorFor(model => model.Birthday)
+        @Html.EditorFor(model => model.Phone)
+        @Html.EditorFor(model => model.Sex)
+
+        <input type="submit" value="Create">
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>
